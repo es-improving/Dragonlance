@@ -26,7 +26,7 @@ namespace Dragonlance.Controllers
         public IActionResult Index()
         {
             //load that file
-            string[] lines = System.IO.File.ReadAllLines(_env.WebRootPath + @"\Data\names.txt");
+            string[] lines = System.IO.File.ReadAllLines(_env.ContentRootPath + @"\Data\names.txt");
             var heroes = new List<Hero>();
 
             foreach (var line in lines)
