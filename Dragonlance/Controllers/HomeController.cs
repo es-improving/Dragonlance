@@ -7,22 +7,26 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Dragonlance.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IWebHostEnvironment _env;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment env)
         {
             _logger = logger;
+            _env = env;
         }
 
         public IActionResult Index()
         {
             //load that file
-            string[] lines = System.IO.File.ReadAllLines("Data/names.txt");
+            string[] lines = System.IO.File.ReadAllLines(_env.ContentRootPath + "/Data/names.txt");
             var heroes = new List<Hero>();
 
             foreach (var line in lines)
