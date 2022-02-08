@@ -52,6 +52,17 @@ namespace Dragonlance.Controllers
             return Content(contentRootPath + "\n" + webRootPath);
         }
 
+        public ActionResult Info()
+        {
+            string[] files = System.IO.Directory.GetFiles(_env.ContentRootPath);
+            string[] directories = System.IO.Directory.GetDirectories(_env.ContentRootPath);
+
+            string output = "";
+            foreach (var file in files) output += file + "\n";
+            foreach (var directory in directories) output += directory + "\n";
+            return Content(output);
+        }
+
         public IActionResult Privacy()
         {
             return View();
