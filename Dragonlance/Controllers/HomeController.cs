@@ -26,7 +26,7 @@ namespace Dragonlance.Controllers
         public IActionResult Index()
         {
             //load that file
-            string[] lines = System.IO.File.ReadAllLines(_env.ContentRootPath + @"\Data\names.txt");
+            string[] lines = System.IO.File.ReadAllLines(_env.WebRootPath + @"\Data\names.txt");
             var heroes = new List<Hero>();
 
             foreach (var line in lines)
@@ -42,6 +42,14 @@ namespace Dragonlance.Controllers
             }
 
             return View(heroes);
+        }
+
+        public ActionResult Paths()
+        {
+            string contentRootPath = _env.ContentRootPath;
+            string webRootPath = _env.WebRootPath;
+
+            return Content(contentRootPath + "\n" + webRootPath);
         }
 
         public IActionResult Privacy()
