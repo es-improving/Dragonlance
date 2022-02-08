@@ -1,0 +1,7 @@
+﻿Caramon Majere,warrior,human
+Flint Fireforge,warrior,drawf
+Goldmoon,cleric,human
+Raistlin Majere,mage,human
+Riverwind,warrior,human
+Tanis,ranger,half-elf
+Tasslehoff Burrfoot,thief,halfling

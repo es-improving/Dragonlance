@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Dragonlance.Controllers
 {
@@ -20,7 +21,23 @@ namespace Dragonlance.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            //load that file
+            string[] lines = System.IO.File.ReadAllLines("Data/names.txt");
+            var heroes = new List<Hero>();
+
+            foreach (var line in lines)
+            {
+                string[] linePieces = line.Split(",");
+
+                var hero = new Hero();
+                hero.Name = linePieces[0];
+                hero.Class = linePieces[1];
+                hero.Race = linePieces[2];
+
+                heroes.Add(hero);
+            }
+
+            return View(heroes);
         }
 
         public IActionResult Privacy()
