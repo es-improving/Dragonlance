@@ -23,7 +23,7 @@ namespace Dragonlance.Controllers
             _env = env;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string characterName)
         {
             //load that file
             string[] lines = System.IO.File.ReadAllLines(_env.ContentRootPath + @"\Data\names.txt");
@@ -34,14 +34,31 @@ namespace Dragonlance.Controllers
                 string[] linePieces = line.Split(",");
 
                 var hero = new Hero();
-                hero.Name = linePieces[0];
-                hero.Class = linePieces[1];
-                hero.Race = linePieces[2];
+                hero.Id = linePieces[0];
+                hero.Name = linePieces[1];
+                hero.Class = linePieces[2];
+                hero.Race = linePieces[3];
+
+                if (!String.IsNullOrEmpty(characterName) && characterName != hero.Name)
+                {
+                    continue;
+                }
 
                 heroes.Add(hero);
             }
 
             return View(heroes);
+        }
+
+        public ActionResult HeroDetail(string id)
+        {
+            // use id to look up data (read a file)
+            // return data to view
+
+            var model = new HeroDetail();
+            model.Id = id;
+
+            return View(model);
         }
 
         public ActionResult Paths()
@@ -64,6 +81,11 @@ namespace Dragonlance.Controllers
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult Pants()
         {
             return View();
         }

@@ -49,6 +49,11 @@ namespace Dragonlance
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "gsffsgfdgfds",
+                    pattern: "some/super/weird/route/on/the/site/",
+                    defaults: new { controller = "Weird", action = "Path" });
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });

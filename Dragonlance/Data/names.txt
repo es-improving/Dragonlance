@@ -1,7 +1,7 @@
-﻿Caramon Majere,warrior,human
-Flint Fireforge,warrior,drawf
-Goldmoon,cleric,human
-Raistlin Majere,mage,human
-Riverwind,warrior,human
-Tanis,ranger,half-elf
-Tasslehoff Burrfoot,thief,halfling
+﻿1,Caramon Majere,warrior,human
+2,Flint Fireforge,warrior,drawf
+3,Goldmoon,cleric,human
+4,Raistlin Majere,mage,human
+5,Riverwind,warrior,human
+6,Tanis,ranger,half-elf
+7,Tasslehoff Burrfoot,thief,halfling
